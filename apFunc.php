@@ -2,7 +2,6 @@
 /**
 *
 * Framework by Appi (Alexander Pozharov)
-* Version: 0.06
 *
 */
 
@@ -16,7 +15,7 @@ use \PDO;
 class EnumConst
 {	
 
-	const VERSION = '0.0.6';
+	const VERSION = '0.0.7';
 	/*
 	* ERRORS
 	*/
@@ -125,7 +124,7 @@ class AntiDDos
     /**
     * Mehtod. Get whiteIp;
     */
-    public function setWhiteIp($params) {
+    public function getWhiteIp($params) {
 
     	return $this->whiteIp;
     }
@@ -159,7 +158,7 @@ class AntiDDos
     /**
     * Mehtod. Get countConnect;
     */
-    public function setCountConnect($params) {
+    public function getCountConnect($params) {
 
     	return $this->countConnect;
     }
@@ -465,6 +464,10 @@ class DataBase
 	protected $fullJoin;
 
 	protected $onJoin;
+
+	protected $like;
+
+	protected $notLike;
 
 	protected $limit;
 
