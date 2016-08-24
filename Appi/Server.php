@@ -20,17 +20,32 @@ class Server
 	}
 
 	/**
+	* Mehtod. Set UTC user;
+	*/
+	public function setClientUTC($utc) {
+		$_SESSION['UTC'] = $utc;
+        return $this;
+    }
+
+	/**
+	* Mehtod. Get UTC user;
+	*/
+	public function getClientUTC() {
+        return $_SESSION['UTC'];
+    }
+
+	/**
 	* Mehtod. Get time stamp;
 	*/
 	public function unixNow() {
-        return $this->timeNow ;
+        return $this->timeNow;
     }
 
 	/**
 	* Mehtod. Get date time;
 	*/
 	public function dateNow() {
-        return $this->dateNow ;
+        return $this->dateNow;
     }
 
 	/**
