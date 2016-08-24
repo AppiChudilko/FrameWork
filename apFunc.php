@@ -15,7 +15,7 @@ use \PDO;
 class EnumConst
 {	
 
-	const VERSION = '0.0.8';
+	const VERSION = '0.0.9';
 	/*
 	* ERRORS
 	*/
@@ -764,7 +764,7 @@ class Statistic
 
 	public function createStatistic() {
 
-		if (empty($_SESSION['time_stats']) || $_SESSION['time_stats'] > $this->timeNow+600) {
+		if (empty($_SESSION['time_stats']) || $_SESSION['time_stats'] < $this->timeNow + 600) {
 			
 			$this->getClientStats();
 
