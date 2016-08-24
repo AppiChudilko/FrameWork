@@ -15,7 +15,7 @@ use \PDO;
 class EnumConst
 {	
 
-	const VERSION = '0.0.9';
+	const VERSION = '0.1.0';
 	/*
 	* ERRORS
 	*/
@@ -39,6 +39,8 @@ class EnumConst
 	/*
 	* DATA BASE COLUMN NAME
 	*/
+	const ID 'id';
+
 	const U_NAME = 'name';
 	const U_SURNAME = 'surname';
 	const U_LASTNAME = 'lastname';
@@ -818,7 +820,7 @@ class Statistic
 		$this->qb
 			->createQueryBuilder(EnumConst::STATS)
 			->updateSql([EnumConst::ST_COUNT], [$this->statsResult[EnumConst::ST_COUNT] + $_SESSION['count_stats']])
-			->where(EnumConst::ST_IP." = '".$this->clientIp."'")
+			->where(EnumConst::ID." = '".$this->statsResult[EnumConst::ID]."'")
 			->executeQuery()
 		;
 
