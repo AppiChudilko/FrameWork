@@ -39,7 +39,7 @@ class EnumConst
 	/*
 	* DATA BASE COLUMN NAME
 	*/
-	const ID 'id';
+	const ID = 'id';
 
 	const U_NAME = 'name';
 	const U_SURNAME = 'surname';
