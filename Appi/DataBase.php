@@ -115,6 +115,31 @@ class DataBase
 	}
 
 	/**
+	* Mehtod. Create table Sql;
+	*/
+	public function createTableSql($paramsColumn = [], $paramsType = []) {
+
+		if (!$this->checkCountArray($paramsColumn, $paramsType)) {
+			return EnumConst::ERROR_SQL_ARRAY;
+		}
+
+		$this->sql = 'CREATE TABLE IF NOT EXISTS '.$this->tableName.' (`id` int(11) NOT NULL AUTO_INCREMENT, ';
+		for ($i=0; $i < count($paramsColumn); $i++) { 
+			$this->sql .= '`'.$paramsColumn[$i].'` '.$paramsType[$i].' NOT NULL, ';
+		}
+		$this->sql .= 'PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1';
+		$this->query = $this->dbh->prepare($this->sql);
+		$this->query->execute();
+
+		if ($this->query) {
+			return true;
+		}
+		return false;
+
+		return $this;
+	}
+
+	/**
 	* Mehtod. Generate Delete Sql;
 	*/
 	public function deleteSql() {

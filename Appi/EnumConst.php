@@ -8,7 +8,7 @@ namespace Appi;
 class EnumConst
 {	
 
-	const VERSION = '0.1.3';
+	const VERSION = '0.1.4';
 	/*
 	* ERRORS
 	*/
@@ -47,4 +47,9 @@ class EnumConst
 	const ST_IP = 'ip';
 	const ST_COUNT = 'count';
 	const ST_LAST_CONNECT = 'last_connect';
+
+	const ST_D_ALL_COUNT = 'all_count';
+	const ST_D_COUNT = 'count';
+	const ST_D_DAY = 'day';
+	const ST_D_YEAR = 'year';
 }

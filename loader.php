@@ -9,6 +9,7 @@ use Appi\AntiDDos;
 use Appi\Config;
 use Appi\DataBase;
 use Appi\EnumConst;
+use Appi\Installer;
 use Appi\QueryBuilder;
 use Appi\Server;
 use Appi\Statistic;

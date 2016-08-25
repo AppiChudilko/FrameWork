@@ -52,7 +52,7 @@ class Statistic
 		$result = $this->qb
 			->createQueryBuilder(EnumConst::STATS)
 			->selectSql()
-			->orderBy('last_connect DESC,id DESC')
+			->orderBy(EnumConst::ST_LAST_CONNECT.' DESC,id DESC')
 			->executeQuery()
 			->getResult()
 		;
@@ -64,7 +64,7 @@ class Statistic
 		$result = $this->qb
 			->createQueryBuilder(EnumConst::STATS_DAY)
 			->selectSql()
-			->orderBy('year ASC,day ASC')
+			->orderBy(EnumConst::ST_D_YEAR.' ASC,'.EnumConst::ST_D_DAY.' ASC')
 			->executeQuery()
 			->getResult()
 		;
