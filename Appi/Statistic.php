@@ -31,7 +31,7 @@ class Statistic
 			$this->getClientStats();
 
 			if (!empty($this->statsResult)) {
-				if (date('Y/d', $this->timeNow) != date('Y/d', $this->statsResult[EnumConst::ST_LAST_CONNECT])) {
+				if (gmdate('Y/d', $this->timeNow) != gmdate('Y/d', $this->statsResult[EnumConst::ST_LAST_CONNECT])) {
 					$this->insertClientStats();
 				}
 				else {
@@ -52,7 +52,19 @@ class Statistic
 		$result = $this->qb
 			->createQueryBuilder(EnumConst::STATS)
 			->selectSql()
-			->orderBy('last_connect,id ASC')
+			->orderBy('last_connect DESC,id DESC')
+			->executeQuery()
+			->getResult()
+		;
+
+		return $result;
+	}
+
+	public function getAllDaysStats() {
+		$result = $this->qb
+			->createQueryBuilder(EnumConst::STATS_DAY)
+			->selectSql()
+			->orderBy('year ASC,day ASC')
 			->executeQuery()
 			->getResult()
 		;

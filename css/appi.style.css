@@ -1,0 +1,131 @@
+@font-face {
+	font-family: 'Hero-light';
+	src: url('fonts/Hero_Light.otf');
+}
+
+#scrollup {
+	position: fixed;
+	width: 30px;
+	height: 30px;
+	padding: 10px;
+	border-radius: 50%; 
+	right: 10px;
+	bottom: 10px; 
+	display: none;
+	background: #db4437;
+	cursor: pointer;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+table {
+        width:100%;
+        text-align:center;
+        border-collapse:collapse;
+        border-bottom:1px solid #E5E5E5;
+        border-top:1px solid #E5E5E5;
+        margin-bottom:20px;
+}
+table td {
+        padding:8px 10px;
+        border-right:1px solid #E5E5E5;
+}
+table tr {
+        border-left:1px solid #E5E5E5;
+        border-top:1px solid #E5E5E5;
+        transition: 0.3s all;
+}
+table tr:hover {
+        background-color:#ffcbc7;
+}
+table th {
+        padding: 8px 5px;
+        color: #1f1f1f;
+        border-right: 1px solid #E5E5E5;
+        font-weight: normal;
+        background: #efefef;
+}
+
+@-webkit-keyframes swing_yes
+{
+    15%
+    {
+        -webkit-transform: translateY(9px);
+        transform: translateY(9px);
+    }
+    
+    30%
+    {
+        -webkit-transform: translateY(-9px);
+        transform: translateY(-9px);
+    }
+    
+    40%
+    {
+        -webkit-transform: translateY(6px);
+        transform: translateY(6px);
+    }
+    
+    50%
+    {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+    }
+    
+    65%
+    {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    
+    100%
+    {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes swing_no
+{
+    15%
+    {
+        -webkit-transform: translateX(9px);
+        transform: translateX(9px);
+    }
+    
+    30%
+    {
+        -webkit-transform: translateX(-9px);
+        transform: translateX(-9px);
+    }
+    
+    40%
+    {
+        -webkit-transform: translateX(6px);
+        transform: translateX(6px);
+    }
+    
+    50%
+    {
+        -webkit-transform: translateX(-6px);
+        transform: translateX(-6px);
+    }
+    
+    65%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+::selection 					{ background: #ffb7b7; }
+
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background-color: #fff; border-radius: 20px;  }
+::-webkit-scrollbar-thumb        { background-color: #b3b3b3; -webkit-appearance: none;  border-radius:20px; }
+::-webkit-scrollbar-thumb:hover  { background-color: #EA5353; }

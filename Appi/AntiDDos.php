@@ -32,7 +32,7 @@ class AntiDDos
  
         if (empty($_COOKIE['AntiDDos'])) {
            
-            if (!in_array($_SERVER['REMOTE_ADDR'], $this->whiteIp )) {
+            if (!in_array(Server::getClientIp(), $this->whiteIp )) {
            
                 if (empty($_SESSION['lastConnect'])) {
                     $_SESSION['lastConnect'] = $this->timeNow;

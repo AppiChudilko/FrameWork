@@ -8,7 +8,7 @@ namespace Appi;
 class EnumConst
 {	
 
-	const VERSION = '0.1.2';
+	const VERSION = '0.1.3';
 	/*
 	* ERRORS
 	*/
@@ -29,6 +29,7 @@ class EnumConst
 	const USERS = 'a_user';
 	const NEWS = 'fw_news';
 	const STATS = 'fw_statistic';
+	const STATS_DAY = 'fw_stats_day';
 
 	/*
 	* DATA BASE COLUMN NAME
