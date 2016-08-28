@@ -24,7 +24,7 @@ class Server
 	*/
 	public function setClientUTC($utc) {
 		$_SESSION['UTC'] = $utc;
-        return $this;
+        return true;
     }
 
 	/**
