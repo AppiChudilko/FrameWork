@@ -3,18 +3,32 @@
 	src: url('fonts/Hero_Light.otf');
 }
 
-#scrollup {
-	position: fixed;
-	width: 30px;
-	height: 30px;
-	padding: 10px;
-	border-radius: 50%; 
-	right: 10px;
-	bottom: 10px; 
-	display: none;
-	background: #db4437;
-	cursor: pointer;
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+body {
+    margin: 0;
+    background-color: #fff;
+    color: #454545;
+    font-family: Arial;
+}
+
+header {
+    width: auto;
+    height: 50px;
+    background-color: #db4437;
+    padding: 5px;
+    color: #FFF;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 99;
+}
+
+h1 {
+    color: #454545;
+}
+
+.fixed {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
 }
 
 table {
@@ -43,6 +57,75 @@ table th {
         border-right: 1px solid #E5E5E5;
         font-weight: normal;
         background: #efefef;
+}
+
+input[type="submit"] {
+    padding: 0px 10px;
+    margin: 5px;
+    height: 42px;
+    border: 2px solid #f1f1f1;
+    color: #454545;
+    background: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s all;
+    font-size: 17px;
+}
+
+input[type="submit"]:hover {
+    border: 2px solid #53ea93;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+    padding: 0px 10px;
+    margin: 5px;
+    height: 40px;
+    border: 2px solid #f1f1f1;
+    color: #454545;
+    background: #fff;
+    outline: none;
+    transition: 0.3s all;
+    font-size: 17px;
+}
+
+input:focus {
+    border: 2px solid #53ea93;
+}
+
+.center {
+    margin: 10px auto;
+}
+
+.tool-title:hover::after {
+    content: attr(tool-title);
+    display: block;
+}
+
+.tool-title::after {
+    content: attr(tool-title);
+    padding: 5px;
+    display: none;
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    background-color: #db4437;
+    border-radius: 3px;
+    margin-top: -45px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#scrollup {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%; 
+    right: 10px;
+    bottom: 10px; 
+    display: none;
+    background: #db4437;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 @-webkit-keyframes swing_yes

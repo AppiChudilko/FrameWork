@@ -19,7 +19,7 @@ if (Config::isAntiSqlDDos) {
 	new AntiDDos;
 }
 
-if (empty($_SESSION['UTC'])) {
+if (!isset($_SESSION['UTC'])) {
 	$_SESSION['UTC'] = 0;
 }
 
