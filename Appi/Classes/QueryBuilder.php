@@ -1,6 +1,6 @@
 <?php
 
-namespace Appi;
+namespace Appi\Classes;
 
 use \PDO;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Appi;
+namespace Appi\Classes;
 
 /**
 * Template
@@ -13,8 +13,12 @@ class Template
 
 	protected $vars = [];
 
+	protected $config;
+
 	public function __construct($path = '') {
-		$this->path = $_SERVER['DOCUMENT_ROOT'] . $path;
+		$this->path = $_SERVER['DOCUMENT_ROOT'] . $path; //REQUEST_URI
+		$this->config = new Config;
+		$this->config = $this->config->getAppiAllConfig()->getObjectResult();
 	}
 
 	public function __get($name) {
@@ -28,32 +32,32 @@ class Template
 
 	public function display($dir, $strip = true) {
 
-		$this->template = $this->path.$dir;
-		if (!file_exists($this->template)) die('Template '.$this->template.' does not exist');
+		$this->template = $this->path . $dir;
+		if (!file_exists($this->template)) die('Template ' . $this->template . ' does not exist');
 
-		if (!file_exists($this->path.'cache')) {
-		    mkdir($this->path.'cache', 0777, true);
+		if (!file_exists($this->path . 'cache')) {
+		    mkdir($this->path . 'cache', 0777, true);
 		}
 
 		$output = file_get_contents($this->template, true);
 		$output = ($strip) ? $this->replaceReg($this->replaceTag($output)) : $this->replaceTag($output);
 
-		$fp = fopen ($this->path.'cache/'.md5($dir).Config::Template, 'w');   
+		$fp = fopen ($this->path . 'cache/' . md5($dir) . $this->config->Template, 'w');   
 		fwrite($fp,$output);   
 		fclose($fp);  
 
 		ob_start();
-		include_once($this->path.'cache/'.md5($dir).Config::Template);
-		echo ob_get_clean();
+		include($this->path . 'cache/' . md5($dir) . $this->config->Template);
+		return ob_get_clean();
 	}
 
-	private function replaceTag($buffer) {
+	protected function replaceTag($buffer) {
 		$replaceTwig = ["{{", "}}", "{*", "*}", "{!", "!}"];
 		$replaceFinal = ["<?php", "?>", "<?php /*", "*/ ?>", "{{", "}}"];
 		return str_replace($replaceTwig, $replaceFinal, $buffer);
 	}
 
-	private function replaceReg($data) {
+	protected function replaceReg($data) {
 		$lit = ["\\t", "\\n", "\\n\\r", "\\r\\n", "  "];
 		$sp = ['', '', '', '', ''];
 		return str_replace($lit, $sp, $data);

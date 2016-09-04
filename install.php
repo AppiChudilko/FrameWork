@@ -1,9 +1,13 @@
 <?php
-include_once "loader.php";
+include_once "autoLoader.php";
 
-use Appi\EnumConst;
-use Appi\QueryBuilder;
-use Appi\Installer;
+use Appi\Classes\Init;
+use Appi\Classes\EnumConst;
+use Appi\Classes\QueryBuilder;
+use Appi\Classes\Installer;
+
+$init = new Init;
+$init->initAppi();
 
 if (isset($_POST['install'])) {
 	$qb = new QueryBuilder();
@@ -19,7 +23,7 @@ if (isset($_POST['install'])) {
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Appi - Install</title>
-		<link rel="stylesheet" type="text/css" href="css/appi.style.css">
+		<link rel="stylesheet" type="text/css" href="views/css/appi.style.css">
 	</head>
 	<body>
 		<section class="center" style="width:300px; text-align: center;">

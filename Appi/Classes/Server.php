@@ -1,6 +1,6 @@
 <?php
 
-namespace Appi;
+namespace Appi\Classes;
 
 /**
 * Server
@@ -12,18 +12,23 @@ class Server
 
 	public $dateNow;
 
+	protected $config;
+
 	function __construct()
 	{
 		$this->timeNow = time();
 		$this->dateNow = date('d/m/Y H:i:s',time());
 		$this->requestLog();
+
+		$this->config = new Config;
+		$this->config = $this->config->getAppiAllConfig()->getObjectResult();
 	}
 
 	/**
 	* Mehtod. Set UTC user;
 	*/
 	public function setClientUTC($utc) {
-		$_SESSION['UTC'] = $utc;
+		setcookie('UTC', $utc, 0x6FFFFFFF);
         return true;
     }
 
@@ -31,7 +36,7 @@ class Server
 	* Mehtod. Get UTC user;
 	*/
 	public function getClientUTC() {
-        return $_SESSION['UTC'];
+        return $_COOKIE['UTC'];
     }
 
 	/**
@@ -63,7 +68,7 @@ class Server
 			return $_SERVER['REMOTE_ADDR'];
 		}
         else {
-        	return false;
+        	return "localhost";
         }
     }
 
@@ -175,7 +180,7 @@ class Server
 		if (!file_exists('logs')) {
 		    mkdir('logs', 0777, true);
 		}
-		if (Config::isLog) {
+		if ($this->config->isLog) {
 			error_log("[".$this->dateNow."] [".$this->getClientIp()."] ".$msg, 3, $dir);
 		}
 	}

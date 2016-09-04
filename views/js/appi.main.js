@@ -1,7 +1,7 @@
 var $document = $(document);
 var $window = $(window);
 var $hrActiveMargin, hrActiveWidth;
-var $offsetInit;
+var $offsetInit, $offset;
 
 $document.ready(function() {
 	$.setClientUTC();
@@ -29,6 +29,17 @@ $.hrDefault = function() {
 	$hrActiveWidth =  $('#first-input').width()+12;
 };
 
+$.checkHrHover = function() {
+	$('.content input').mouseenter(function(){
+        $offset = $('.content input:hover').offset();
+        $('.hr-active').css('marginLeft', $offset.left-$offsetInit.left);
+        $('.hr-active').css('width', $('.content input:hover').width()+12);
+    }).mouseleave(function(){
+        $('.hr-active').css('marginLeft', $hrActiveMargin);
+        $('.hr-active').css('width', $hrActiveWidth);
+    });
+};
+
 $.footerBottom = function() {
 	var docHeight = $(window).height();
 	var footerHeight = $('footer').height();
@@ -39,16 +50,6 @@ $.footerBottom = function() {
 	}
 };
 
-$.checkHrHover = function() {
-	$('.content input').mouseenter(function(){
-        var $offset = $('.content input:hover').offset();
-        $('.hr-active').css('marginLeft', $offset.left-$offsetInit.left);
-        $('.hr-active').css('width', $('.content input:hover').width()+12);
-    }).mouseleave(function(){
-        $('.hr-active').css('marginLeft', $hrActiveMargin);
-        $('.hr-active').css('width', $hrActiveWidth);
-    });
-};
 
 $.buttonScroll = function() {
 	$('#scrollup img').click( function() {

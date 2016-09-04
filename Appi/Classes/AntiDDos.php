@@ -1,6 +1,6 @@
 <?php
 
-namespace Appi;
+namespace Appi\Classes;
 
 /**
 * AntiDDos
@@ -17,9 +17,9 @@ class AntiDDos
 
     protected $DDosMessage;
  
-    function __construct()
-    {
-        $this->whiteIp = ['176.15.18.126', '84.16.133.26'];
+    function __construct($ips = ['localhost', '127.0.0.1'])
+    {        
+        $this->whiteIp = $ips;
         $this->timeNow = time();
         $this->DDosMessage = 'Time out '.$this->timeOut.'s';
         $this->antiDDos();

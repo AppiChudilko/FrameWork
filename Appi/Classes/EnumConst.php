@@ -1,6 +1,6 @@
 <?php
 
-namespace Appi;
+namespace Appi\Classes;
 
 /**
 * Constant class
@@ -8,7 +8,7 @@ namespace Appi;
 class EnumConst
 {	
 
-	const VERSION = '0.1.6';
+	const VERSION = '0.2.0';
 	/*
 	* ERRORS
 	*/
@@ -46,6 +46,7 @@ class EnumConst
 	const ST_IP = 'ip';
 	const ST_COUNT = 'count';
 	const ST_LAST_CONNECT = 'last_connect';
+	const ST_REFERER = 'http_referer';
 
 	const ST_D_ALL_COUNT = 'all_count';
 	const ST_D_COUNT = 'count';

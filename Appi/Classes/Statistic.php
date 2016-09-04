@@ -1,6 +1,6 @@
 <?php
 
-namespace Appi;
+namespace Appi\Classes;
 
 /**
 * Statistic
@@ -104,10 +104,28 @@ class Statistic
 
 	protected function insertClientStats() {
 
+		$referer = '';
+
+		if (isset($_SERVER['HTTP_REFERER'])) {
+			$referer = $_SERVER['HTTP_REFERER'];
+		}
+
 		$_SESSION['count_stats'] = 1;
 		$this->qb
 			->createQueryBuilder(EnumConst::STATS)
-			->insertSql([EnumConst::ST_IP, EnumConst::ST_COUNT, EnumConst::ST_LAST_CONNECT], [$this->clientIp, '1', $this->timeNow])
+			->insertSql(
+			[
+				EnumConst::ST_IP, 
+				EnumConst::ST_COUNT, 
+				EnumConst::ST_LAST_CONNECT, 
+				EnumConst::ST_REFERER	
+			], [
+				$this->clientIp, 
+				'1', 
+				$this->timeNow, 
+				$referer
+			]
+			)
 			->executeQuery()
 		;
 		return $this;
