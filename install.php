@@ -1,10 +1,11 @@
 <?php
 include_once "autoLoader.php";
 
-use Appi\Classes\Init;
-use Appi\Classes\EnumConst;
-use Appi\Classes\QueryBuilder;
-use Appi\Classes\Installer;
+use Appi\Core\Init;
+use Appi\Core\EnumConst;
+use Appi\Core\QueryBuilder;
+use Appi\Core\Installer;
+use Appi\Core\Request;
 
 $init = new Init;
 $init->initAppi();

@@ -1,8 +1,8 @@
 <?php
 
-namespace Appi\Classes;
+namespace Appi\Core;
 
-use Appi\Classes\EnumConst;
+use Appi\Core\EnumConst;
 
 /**
 * Installer

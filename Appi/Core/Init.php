@@ -1,15 +1,15 @@
 <?php
-namespace Appi\Classes;
+namespace Appi\Core;
 
-use Appi\Classes\AntiDDos;
-use Appi\Classes\Config;
-use Appi\Classes\DataBase;
-use Appi\Classes\EnumConst;
-use Appi\Classes\Installer;
-use Appi\Classes\QueryBuilder;
-use Appi\Classes\Server;
-use Appi\Classes\Statistic;
-use Appi\Classes\Template;
+use Appi\Core\AntiDDos;
+use Appi\Core\Config;
+use Appi\Core\DataBase;
+use Appi\Core\EnumConst;
+use Appi\Core\Installer;
+use Appi\Core\QueryBuilder;
+use Appi\Core\Server;
+use Appi\Core\Statistic;
+use Appi\Core\Template;
 
 /**
 * Init

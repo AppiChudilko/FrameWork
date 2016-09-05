@@ -1,6 +1,6 @@
 <?php
 
-namespace Appi\Classes;
+namespace Appi\Core;
 
 /**
 * AntiDDos
