@@ -8,7 +8,7 @@ namespace Appi\Core;
 class EnumConst
 {	
 
-	const VERSION = '0.2.0';
+	const VERSION = '0.2.2';
 	/*
 	* ERRORS
 	*/
@@ -51,5 +51,6 @@ class EnumConst
 	const ST_D_ALL_COUNT = 'all_count';
 	const ST_D_COUNT = 'count';
 	const ST_D_DAY = 'day';
+	const ST_D_MONTH = 'month';
 	const ST_D_YEAR = 'year';
 }

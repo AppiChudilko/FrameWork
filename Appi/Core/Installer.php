@@ -19,7 +19,10 @@ class Installer
 	public function install() {
 
 		if (!file_exists('views/twig')) {
-		    mkdir('views/twig', 0777, true);
+		    if (!mkdir('views/twig', 0777, true)) {
+		    	echo 'Please, set chmod "views" - 777';
+		    	die;
+		    }
 		}
 		
 		try {
@@ -47,13 +50,15 @@ class Installer
 					[
 						EnumConst::ST_D_ALL_COUNT, 
 						EnumConst::ST_D_COUNT, 
-						EnumConst::ST_D_DAY, 
+						EnumConst::ST_D_DAY,
+						EnumConst::ST_D_MONTH,
 						EnumConst::ST_D_YEAR
 					], 
 					[
 						'int(11)', 
 						'int(11)', 
 						'int(11)', 
+						'int(11)',
 						'int(11)'
 					]
 				)
@@ -90,11 +95,11 @@ class Installer
 		<?php
 		include_once "autoLoader.php";
 
-		use Appi\Classes\Init;
-		use Appi\Classes\EnumConst;
-		use Appi\Classes\QueryBuilder;
-		use Appi\Classes\Server;
-		use Appi\Classes\Template;
+		use Appi\Core\Init;
+		use Appi\Core\EnumConst;
+		use Appi\Core\QueryBuilder;
+		use Appi\Core\Server;
+		use Appi\Core\Template;
 
 		$init = new Init;
 		$init->initAppi();
@@ -107,9 +112,18 @@ class Installer
 			}
 		}
 
-		$server = new Server;
-		$view = new Template($_SERVER[\'REQUEST_URI\'] . \'/views/twig/\');
-
+		$server = new Server;';
+		if ($_SERVER['REQUEST_URI'] == '/') {
+			$output .= '
+			$view = new Template(\'/views/twig/\');
+			';
+		}
+		else {
+			$output .= '
+			$view = new Template($_SERVER[\'REQUEST_URI\'] . \'/views/twig/\');
+			';
+		}
+		$output .= '
 		/*
 		$timeNow = $server->unixNow(); // Time Now
 		$qb = new QueryBuilder();

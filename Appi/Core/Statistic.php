@@ -60,11 +60,12 @@ class Statistic
 		return $result;
 	}
 
-	public function getAllDaysStats() {
+	public function getAllDaysStats($month = 1) {
 		$result = $this->qb
 			->createQueryBuilder(EnumConst::STATS_DAY)
 			->selectSql()
-			->orderBy(EnumConst::ST_D_YEAR.' ASC,'.EnumConst::ST_D_DAY.' ASC')
+			->orderBy(EnumConst::ST_D_YEAR.' ASC, '.EnumConst::ST_D_DAY.' ASC')
+			->where('month = ' . $month)
 			->executeQuery()
 			->getResult()
 		;
