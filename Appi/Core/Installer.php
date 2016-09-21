@@ -154,9 +154,9 @@ class Installer
 				<title>Appi - Main</title>
 
 				<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-				<script type="text/javascript" src="views/js/appi.main.js"></script>
+				<script type="text/javascript" src="/views/js/appi.main.js"></script>
 
-				<link rel="stylesheet" type="text/css" href="views/css/appi.style.css">
+				<link rel="stylesheet" type="text/css" href="/views/css/appi.style.css">
 			</head>
 			<body>
 		';

@@ -1,5 +1,5 @@
 { 
 	"isLog": false,
-	"isAntiSqlDDos": false,
+	"isAntiSqlDDos": true,
 	"Template": ".twig"
 }

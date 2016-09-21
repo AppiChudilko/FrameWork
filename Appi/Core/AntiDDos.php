@@ -9,7 +9,7 @@ class AntiDDos
 {
     protected $whiteIp;
 
-    protected $countConnect = 20;
+    protected $countConnect = 30;
 
     protected $timeOut = 10;
 
@@ -38,7 +38,7 @@ class AntiDDos
                     $_SESSION['lastConnect'] = $this->timeNow;
                     $_SESSION['countConnect'] = 0;
                 }
-                elseif ($_SESSION['lastConnect'] > $this->timeNow + 10) {
+                elseif ($_SESSION['lastConnect'] > $this->timeNow + $this->timeOut) {
                     $_SESSION['lastConnect'] = $this->timeNow;
                     $_SESSION['countConnect'] = 0;
                 }
