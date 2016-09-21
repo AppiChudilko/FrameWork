@@ -8,16 +8,20 @@ namespace Appi\Core;
 class Server
 {
 
-	public $timeNow;
+	public $timeStampNow;
 
+	public $dateTimeNow;
 	public $dateNow;
+	public $timeNow;
 
 	protected $config;
 
 	function __construct()
 	{
-		$this->timeNow = time();
-		$this->dateNow = date('d/m/Y H:i:s',time());
+		$this->timeStampNow = time();
+		$this->dateTimeNow = date('Y-m-d H:i:s', $this->timeStampNow);
+		$this->dateNow = date('Y-m-d', $this->timeStampNow);
+		$this->timeNow = date('H:i:s', $this->timeStampNow);
 		$this->requestLog();
 
 		$this->config = new Config;
@@ -43,14 +47,28 @@ class Server
 	* Mehtod. Get time stamp;
 	*/
 	public function unixNow() {
-        return $this->timeNow;
+        return $this->timeStampNow;
     }
 
 	/**
 	* Mehtod. Get date time;
 	*/
+	public function dateTimeNow() {
+        return $this->dateTimeNow;
+    }
+
+    /**
+	* Mehtod. Get date;
+	*/
 	public function dateNow() {
         return $this->dateNow;
+    }
+
+    /**
+	* Mehtod. Get time;
+	*/
+	public function timeNow() {
+        return $this->timeNow;
     }
 
 	/**
@@ -180,9 +198,9 @@ class Server
 		if (!file_exists('logs')) {
 		    mkdir('logs', 0777, true);
 		}
-		if ($this->config->isLog) {
+		/*if ($this->config->isLog) {
 			error_log("[".$this->dateNow."] [".$this->getClientIp()."] ".$msg, 3, $dir);
-		}
+		}*/
 	}
 
 	public function error($msg, $errorCode = null) {

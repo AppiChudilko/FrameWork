@@ -33,7 +33,7 @@ class QueryBuilder
 		catch(PDOException $e)
 		{
 		    echo $e->getMessage();
-		    $server->log("[".$server->dateNow."] ".$e.";\n", "logs/errors.log");
+		    $this->server->log("[".$this->server->dateNow."] ".$e.";\n", "logs/errors.log");
 		    return false;
 		}
 		$char = $this->dbh->prepare('SET NAMES UTF8');

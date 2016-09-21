@@ -277,7 +277,7 @@ class DataBase
 		$andWhereResult = implode(' ', $this->andWhere);
 		$orWhereResult = implode(' ', $this->orWhere);
 
-		$this->sql .= $this->limit.$this->where.$andWhereResult.$orWhereResult.$this->orderBy.$this->groupBy.$this->like.$this->notLike;
+		$this->sql .= $this->where.$andWhereResult.$orWhereResult.$this->orderBy.$this->groupBy.$this->limit.$this->like.$this->notLike;
 		$this->sql .= $this->innerJoin.$this->leftJoin.$this->rightJoin.$this->fullJoin.$this->onJoin;
 	
 		$this->query = $this->dbh->prepare($this->sql);
@@ -303,6 +303,20 @@ class DataBase
 		if ($this->query) {
 			if ($this->isSelect) {
 				return $this->query->fetchAll();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	* Mehtod. Get Single Result;
+	*/
+	public function getSingleResult() {
+
+		if ($this->query) {
+			if ($this->isSelect) {
+				return $this->query->fetch();
 			}
 			return true;
 		}
